@@ -8,12 +8,14 @@ exports.up = function(knex, Promise) {
     inspect.text('auditor');
     inspect.text('comments');
   })
-  .createTable('employees', (employ) => {
-    employ.increments();
-    employ.integer('inspect_id').references('id').inTable('inspections').notNull().onDelete('cascade');
-    employ.text('firstName');
-    employ.text('lastName');
-    employ.text('contact_number');
+  .createTable('clients', (client) => {
+    client.increments();
+    client.text('name');
+    client.text('address');
+    client.text('contact_number');
+    client.text('email');
+    client.text('contact_person');
+    client.integer('inspect_id').references('id').inTable('inspections').notNull().onDelete('cascade');
   });
 
 };
@@ -21,6 +23,6 @@ exports.up = function(knex, Promise) {
 exports.down = function(knex, Promise) {
   // Reverse order here to prevent error.
   return knex.schema
-  .dropTable('employees')
+  .dropTable('clients')
   .dropTable('inspections')
 };

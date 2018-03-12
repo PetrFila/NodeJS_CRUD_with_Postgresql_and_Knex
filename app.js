@@ -22,8 +22,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 const inspections = require('./routes/inspections');
 app.use('/', inspections);
 
-const employees = require('./routes/employees');
-app.use('/employees', employees)
+const clients = require('./routes/clients');
+app.use('/clients', clients)
 
 
 // catch 404 and forward to error handler

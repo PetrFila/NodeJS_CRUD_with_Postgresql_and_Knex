@@ -7,6 +7,7 @@ getAllInspections = (req, res) => {
     .then(inspections => { //the promise takes the parameter inspections which is the table name already populated with data from database
         res.json(inspections)
     })
+    .catch(error => res.json({ error }))
 }
 
 getOneInspection = (req, res) => {
@@ -14,6 +15,7 @@ getOneInspection = (req, res) => {
     .then(inspections => {
         res.json(inspections)
     })
+    .catch(error => res.json({ error }))
 }
 
 postNewInspections = (req,res) => {
@@ -21,6 +23,7 @@ postNewInspections = (req,res) => {
     .then(inspections => { //the promise takes the parameter inspections which is the table name already populated with data from database
         res.json(inspections[0])
     })
+    .catch(error => res.json({ error }))
 }
 
 updateInspections = (req,res) => {
