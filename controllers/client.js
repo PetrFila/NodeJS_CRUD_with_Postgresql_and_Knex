@@ -1,4 +1,4 @@
-const queries = require ('../db/queries')
+const queries = require ('../db/query.helpers/client.helper.js')
 const knex = require('../db/knex')
 const bodyParser = require('body-parser')
 let allEmployees = [];
