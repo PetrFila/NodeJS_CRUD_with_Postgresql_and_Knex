@@ -7,10 +7,10 @@ router.get('/', inspection.getAllInspections);
 
 router.get('/:id', inspection.getOneInspection);
 
-router.post('/new', inspection.postNewInspections);
+router.post('/', inspection.postNewInspections);
 
-router.put('/update/:id', inspection.updateInspections);
+router.put('/:id', inspection.updateInspections);
 
-router.delete('/delete/:id', inspection.deleteInspections);
+router.delete('/:id', inspection.deleteInspections);
 
 module.exports = router;

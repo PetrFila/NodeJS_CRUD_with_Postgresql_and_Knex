@@ -17,6 +17,6 @@ module.exports = {
     // return knex('inspections').where('id', id).first(); //.first returns one row only
   },
   createInspection(inspection) {
-    return knex('inspections').insert(inspection)
+    return knex('inspections').insert(inspection,'*')
   }
 }

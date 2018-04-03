@@ -18,13 +18,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// end points
-const inspections = require('./routes/inspections');
-app.use('/', inspections);
 
+
+// end points
 const clients = require('./routes/clients');
 app.use('/clients', clients)
 
+const inspections = require('./routes/inspections');
+app.use('/', inspections);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
