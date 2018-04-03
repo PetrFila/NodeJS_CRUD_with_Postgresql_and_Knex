@@ -19,8 +19,8 @@ getOneClient = (req, res) => {
     .catch(error => res.json({ error }))
 }
 
-postNewClients = (req,res) => {
-    queries.postNewClients(req.body)
+postNewClient = (req,res) => {
+    queries.postNewClient(req.body)
     .then(clients => { //the promise takes the parameter employees which is the table name already populated with data from database
         res.status(201).json(clients[0])
     })
@@ -40,7 +40,7 @@ deleteClients = (req,res) => {
 module.exports = {
     getAllClients,
     getOneClient,
-    postNewClients,
+    postNewClient,
     updateClients,
     deleteClients
 };

@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const inspection = require('../controllers/inspection')
+const inspectionController = require('../controllers/inspection.controller')
 
 /* GET home page. */
-router.get('/', inspection.getAllInspections);
+router.get('/', inspectionController.getAllInspections);
 
-router.get('/:id', inspection.getOneInspection);
+router.get('/:id', inspectionController.getOneInspection);
 
-router.post('/', inspection.postNewInspections);
+router.post('/', inspectionController.postNewInspections);
 
-router.put('/:id', inspection.updateInspections);
+router.put('/:id', inspectionController.updateInspections);
 
-router.delete('/:id', inspection.deleteInspections);
+router.delete('/:id', inspectionController.deleteInspections);
 
 module.exports = router;
