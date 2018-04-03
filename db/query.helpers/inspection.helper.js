@@ -21,5 +21,8 @@ module.exports = {
   },
   updateInspection(req) {
     return knex('inspections').where('id',req.params.id).update(req.body,'*')
+  },
+  deleteInspection(id) {
+    return knex('inspections').where('id', id).del()
   }
 }

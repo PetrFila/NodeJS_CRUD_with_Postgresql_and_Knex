@@ -17,5 +17,8 @@ module.exports = {
   },
   updateClient(req) {
     return knex('clients').where('id',req.params.id).update(req.body,'*')
+  },
+  deleteClient(id) {
+    return knex('clients').where('id', id).del()
   }
 }

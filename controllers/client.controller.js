@@ -36,8 +36,11 @@ updateClient = (req,res) => {
 }
 
 deleteClient = (req,res) => {
-    let deleteClient = req.params
-    res.status(201).json('Entry number ' + deleteClient.id + ' deleted')
+    queries.deleteClient(req.params.id)
+    .then(deletedClient => {
+        res.status(201).json('Successfully deleted')
+    })
+    .catch(error => res.json({ error }))
 }
 
 module.exports = {
