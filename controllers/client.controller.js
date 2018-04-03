@@ -1,7 +1,7 @@
 const queries = require ('../db/query.helpers/client.helper.js')
 const knex = require('../db/knex')
 const bodyParser = require('body-parser')
-let allEmployees = [];
+
 
 getAllClients = (req, res) => {
     queries.getAllClients()
@@ -27,12 +27,15 @@ postNewClient = (req,res) => {
     .catch(error => res.json({ error }))
 }
 
-updateClients = (req,res) => {
-    let updateClient = req.body
-    res.status(201).json('Entry number ' + updateClient.id + ' updated')
+updateClient = (req,res) => {
+    queries.updateClient(req)
+    .then(updatedClient => {
+        res.status(201).json(updatedClient[0])
+    })
+    .catch(error => res.json({ error }))
 }
 
-deleteClients = (req,res) => {
+deleteClient = (req,res) => {
     let deleteClient = req.params
     res.status(201).json('Entry number ' + deleteClient.id + ' deleted')
 }
@@ -41,6 +44,6 @@ module.exports = {
     getAllClients,
     getOneClient,
     postNewClient,
-    updateClients,
-    deleteClients
+    updateClient,
+    deleteClient
 };

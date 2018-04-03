@@ -8,8 +8,8 @@ router.get('/:id', clientController.getOneClient);
 
 router.post('/', clientController.postNewClient)
 
-router.put('/:id', clientController.updateClients)
+router.put('/:id', clientController.updateClient)
 
-router.delete('/:id', clientController.deleteClients)
+router.delete('/:id', clientController.deleteClient)
 
 module.exports = router;

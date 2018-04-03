@@ -14,5 +14,8 @@ module.exports = {
   },
   postNewClient(client) {
     return knex('clients').insert(client,'*');
+  },
+  updateClient(req) {
+    return knex('clients').where('id',req.params.id).update(req.body,'*')
   }
 }

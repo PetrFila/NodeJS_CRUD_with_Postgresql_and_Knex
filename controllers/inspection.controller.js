@@ -18,7 +18,7 @@ getOneInspection = (req, res) => {
     .catch(error => res.json({ error }))
 }
 
-postNewInspections = (req,res) => {
+postNewInspection = (req,res) => {
     queries.createInspection(req.body)
     .then(inspections => { //the promise takes the parameter inspections which is the table name already populated with data from database
         res.json(inspections[0])
@@ -26,12 +26,15 @@ postNewInspections = (req,res) => {
     .catch(error => res.json({ error }))
 }
 
-updateInspections = (req,res) => {
-    let updateInspection = req.body
-    res.json('Entry number ' + updateInspection.id + ' updated')
+updateInspection = (req,res) => {
+    queries.updateInspection(req)
+    .then(updatedInspection => {
+        res.json(updatedInspection[0])
+    })
+    .catch(error => res.json({ error }))
 }
 
-deleteInspections = (req,res) => {
+deleteInspection = (req,res) => {
     let deleteInspection = req.params
     res.json('Entry number ' + deleteInspection.id + ' deleted')
 }
@@ -39,7 +42,7 @@ deleteInspections = (req,res) => {
 module.exports = {
     getAllInspections,
     getOneInspection,
-    postNewInspections,
-    updateInspections,
-    deleteInspections
+    postNewInspection,
+    updateInspection,
+    deleteInspection
 };

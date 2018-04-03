@@ -18,5 +18,8 @@ module.exports = {
   },
   createInspection(inspection) {
     return knex('inspections').insert(inspection,'*')
+  },
+  updateInspection(req) {
+    return knex('inspections').where('id',req.params.id).update(req.body,'*')
   }
 }
