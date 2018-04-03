@@ -2,7 +2,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema
   .createTable('inspections', (inspection) => {
-    inspection.increments();
+    inspection.increments('id').notNullable().primary();
     inspection.date('date');
     inspection.integer('frequency');
     inspection.text('auditor');

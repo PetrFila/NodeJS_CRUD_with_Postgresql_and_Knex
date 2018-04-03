@@ -12,7 +12,7 @@ module.exports = {
     // return knex.raw('select * from clients inner join inspections')
     return knex('clients').where('id', id).first(); //.first only returns one row
   },
-  createClient(client) {
-    return knex('clients').insert(client);
+  postNewClient(client) {
+    return knex('clients').insert(client,'*');
   }
 }
