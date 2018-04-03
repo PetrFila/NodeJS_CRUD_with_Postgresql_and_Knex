@@ -29,14 +29,17 @@ postNewInspection = (req,res) => {
 updateInspection = (req,res) => {
     queries.updateInspection(req)
     .then(updatedInspection => {
-        res.json(updatedInspection[0])
+        res.status(201).json(updatedInspection[0])
     })
-    .catch(error => res.json({ error }))
+    
 }
 
 deleteInspection = (req,res) => {
-    let deleteInspection = req.params
-    res.json('Entry number ' + deleteInspection.id + ' deleted')
+    queries.deleteInspection(req.params.id)
+    .then(deletedInspection => {
+        res.status(201).json('Successfully deleted')
+    })
+    .catch(error => res.json({ error }))
 }
 
 module.exports = {
